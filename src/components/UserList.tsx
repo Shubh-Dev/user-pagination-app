@@ -9,6 +9,7 @@ interface User {
   Phone: string;
   Company: string;
 }
+
 const PAGE_DISPLAY_COUNT = 5;
 
 const UserList: React.FC = () => {
@@ -49,10 +50,10 @@ const UserList: React.FC = () => {
   return (
     <div className="container mx-auto p-4">
       {loading ? (
-        <p className="text-center">Loading...</p>
+        <p className="text-center text-lg">Loading...</p>
       ) : (
         <div>
-          <table className="min-w-full bg-white border border-gray-200">
+          <table className="min-w-full bg-white border border-gray-300">
             <thead className="bg-gray-100">
               <tr>
                 <th className="px-4 py-2 border-b">ID</th>
@@ -65,7 +66,7 @@ const UserList: React.FC = () => {
             </thead>
             <tbody>
               {users.map((user) => (
-                <tr key={user.ID}>
+                <tr key={user.ID} className="hover:bg-gray-50">
                   <td className="px-4 py-2 border-b">{user.ID}</td>
                   <td className="px-4 py-2 border-b">{user.FirstNameLastName}</td>
                   <td className="px-4 py-2 border-b">{user.JobTitle}</td>
@@ -80,7 +81,7 @@ const UserList: React.FC = () => {
             <button
               onClick={handlePrev}
               disabled={page === 1}
-              className="px-4 py-2 bg-blue-500 text-white rounded disabled:bg-gray-300"
+              className="px-4 py-2 bg-blue-500 text-white rounded disabled:bg-gray-300 disabled:cursor-not-allowed"
             >
               Previous
             </button>
@@ -90,8 +91,8 @@ const UserList: React.FC = () => {
                   key={pageNumber}
                   onClick={() => setPage(pageNumber)}
                   className={`px-4 py-2 mx-1 ${
-                    page === pageNumber ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-700'
-                  } rounded`}
+                    page === pageNumber ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'
+                  } rounded hover:bg-blue-400 hover:text-white`}
                 >
                   {pageNumber}
                 </button>
@@ -99,7 +100,7 @@ const UserList: React.FC = () => {
             </div>
             <button
               onClick={handleNext}
-              className="px-4 py-2 bg-blue-500 text-white rounded"
+              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-400"
             >
               Next
             </button>
@@ -111,6 +112,7 @@ const UserList: React.FC = () => {
 };
 
 export default UserList;
+
 
 
 
