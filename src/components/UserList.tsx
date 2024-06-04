@@ -52,27 +52,27 @@ const UserList: React.FC = () => {
       {loading ? (
         <p className="text-center text-lg">Loading...</p>
       ) : (
-        <div>
+        <div className="overflow-x-auto">
           <table className="min-w-full bg-white border border-gray-300">
-            <thead className="bg-gray-100">
+            <thead className="bg-blue-500 text-white">
               <tr>
-                <th className="px-4 py-2 border-b">ID</th>
-                <th className="px-4 py-2 border-b">Name</th>
-                <th className="px-4 py-2 border-b">Job Title</th>
-                <th className="px-4 py-2 border-b">Email</th>
-                <th className="px-4 py-2 border-b">Phone</th>
-                <th className="px-4 py-2 border-b">Company</th>
+                <th className="px-6 py-3 border-b">ID</th>
+                <th className="px-6 py-3 border-b">Name</th>
+                <th className="px-6 py-3 border-b">Job Title</th>
+                <th className="px-6 py-3 border-b">Email</th>
+                <th className="px-6 py-3 border-b">Phone</th>
+                <th className="px-6 py-3 border-b">Company</th>
               </tr>
             </thead>
             <tbody>
               {users.map((user) => (
-                <tr key={user.ID} className="hover:bg-gray-50">
-                  <td className="px-4 py-2 border-b">{user.ID}</td>
-                  <td className="px-4 py-2 border-b">{user.FirstNameLastName}</td>
-                  <td className="px-4 py-2 border-b">{user.JobTitle}</td>
-                  <td className="px-4 py-2 border-b">{user.EmailAddress}</td>
-                  <td className="px-4 py-2 border-b">{user.Phone}</td>
-                  <td className="px-4 py-2 border-b">{user.Company}</td>
+                <tr key={user.ID} className="hover:bg-gray-50 odd:bg-blue-50 cursor-pointer">
+                  <td className="px-4 py-3 border-b">{user.ID}</td>
+                  <td className="px-4 py-3 border-b">{user.FirstNameLastName}</td>
+                  <td className="px-4 py-3 border-b">{user.JobTitle}</td>
+                  <td className="px-4 py-3 border-b">{user.EmailAddress}</td>
+                  <td className="px-4 py-3 border-b">{user.Phone}</td>
+                  <td className="px-4 py-3 border-b">{user.Company}</td>
                 </tr>
               ))}
             </tbody>
