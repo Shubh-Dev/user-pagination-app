@@ -6,7 +6,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>User Pagination</h1>
+        <h1 className="text-2xl text-blue-500 font-bold">Users</h1>
       </header>
       <main>
         <UserList />
